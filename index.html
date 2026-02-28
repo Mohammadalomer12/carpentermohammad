@@ -30,7 +30,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
         }
 
         .loader-icon-container {
@@ -182,12 +182,12 @@
             background-color: #25d366;
             color: white;
             border-radius: 50%;
-            width: 45px; /* تم التصغير */
-            height: 45px; /* تم التصغير */
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px; /* تم التصغير */
+            font-size: 24px;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             animation: bounce-slight 2s infinite ease-in-out;
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -215,7 +215,7 @@
             border-top-right-radius: 25px;
             border-top: 3px solid;
             border-image: linear-gradient(to right, #8B5A2B, #D4AF37, #8B5A2B) 1;
-            padding: 8px 0; /* تصغير الحجم */
+            padding: 8px 0;
         }
         
         .nav-icon {
@@ -240,7 +240,7 @@
                     <i class="fa-solid fa-saw" style="font-size: 0.8em; margin-top: 5px;"></i>
                 </div>
             </div>
-            <h2 class="text-3xl font-bold text-[#D4AF37] mb-3 tracking-wide">موقع مؤسسة محمد عمر ال يحي يرحب بكم</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-[#D4AF37] mb-3 tracking-wide text-center px-4">مؤسسة محمد آل يحي للنجارة</h2>
             <p class="text-gray-300 font-medium text-lg tracking-widest animate-pulse">جاري تحميل الموقع ...</p>
         </div>
         <a href="https://wa.me/966547194788" target="_blank" class="gold-credit">
@@ -453,7 +453,7 @@
                 </a>
             </div>
 
-            <p class="text-sm text-gray-400 font-light">جميع الحقوق محفوظة لدى / مؤسسة محمد آل يحي للنجارة 2027.</p>
+            <p class="text-[11px] md:text-xs text-gray-400 font-light">جميع الحقوق محفوظة لدى / مؤسسة محمد آل يحي للنجارة 2027.</p>
         </div>
     </footer>
 
@@ -470,15 +470,15 @@
     </div>
 
     <script>
-        // إخفاء شاشة التحميل
+        // إخفاء شاشة التحميل - تم التعديل ليكون 3 ثواني
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 loader.style.opacity = '0';
                 setTimeout(() => {
                     loader.style.display = 'none';
-                }, 800);
-            }, 2800); // زيادة وقت التحميل قليلاً لتظهر الفخامة
+                }, 500);
+            }, 2500); // إجمالي الوقت 3 ثواني
         });
 
         // الهيدر الذكي المتغير
