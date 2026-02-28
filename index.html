@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة محمد آل يحي - نجار تفصيل خزائن وديكورات</title>
+    <title>نجار تفصيل خزائن وديكورات مؤسسة محمد آل يحي</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -20,72 +20,114 @@
             overflow-x: hidden;
         }
 
-        /* Loading Screen */
+        /* 2. شاشة التحميل الفخمة */
         #loader {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #FDFBF7;
+            background: linear-gradient(135deg, #2A1A14 0%, #170E0B 100%);
             z-index: 9999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
         }
 
-        /* التعديل الجديد هنا: إطار الأيقونة المزدوجة */
-        .loader-icon {
-            width: 100px; height: 100px;
-            border: 2px solid #6b4423;
+        .loader-icon-container {
+            position: relative;
+            width: 120px; height: 120px;
+            border: 3px solid transparent;
+            border-top-color: #D4AF37;
+            border-bottom-color: #D4AF37;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 35px; color: #6b4423;
-            animation: spin-pulse 2s infinite ease-in-out;
-            margin-bottom: 20px;
-            position: relative;
+            font-size: 40px; color: #D4AF37;
+            animation: spin-lux 3s linear infinite;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .loader-icon-inner {
+            animation: spin-lux-reverse 3s linear infinite;
+            display: flex;
+            gap: 5px;
         }
 
-        /* أنميشن النبض والدوران */
-        @keyframes spin-pulse {
-            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(107, 68, 35, 0.4); }
-            50% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(107, 68, 35, 0); }
-            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(107, 68, 35, 0); }
+        @keyframes spin-lux {
+            0% { transform: rotate(0deg) scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+            50% { transform: rotate(180deg) scale(1.05); box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+            100% { transform: rotate(360deg) scale(1); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        }
+        
+        @keyframes spin-lux-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
         }
 
-        /* تصميم المهندس إسلام - الإطار الذهبي */
+        /* الإطار الذهبي للمصمم */
         .gold-credit {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 8px 24px;
+            gap: 10px;
+            padding: 10px 28px;
             border: 2px solid #D4AF37;
             border-radius: 50px;
             color: #D4AF37;
             text-decoration: none;
             font-weight: 700;
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(0,0,0,0));
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3), inset 0 0 10px rgba(212, 175, 55, 0.1);
-            transition: all 0.3s ease;
-            animation: goldShimmer 2s infinite alternate;
+            font-size: 15px;
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(0,0,0,0.5));
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+            animation: goldShimmer 2.5s infinite alternate;
             margin-top: auto;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(5px);
+        }
+
+        .gold-credit:hover {
+            background: rgba(212, 175, 55, 0.3);
+            color: #fff;
+            text-shadow: 0 0 8px #D4AF37;
+            transform: translateY(-3px) scale(1.05);
         }
 
         @keyframes goldShimmer {
             0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); transform: translateY(0); }
-            100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.7); transform: translateY(-4px); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8); transform: translateY(-3px); }
         }
 
-        /* Hero Section overlay */
+        /* 3. الهيدر الشفاف واللزج */
+        #main-header {
+            transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+        }
+        .header-scrolled {
+            background-color: rgba(92, 64, 51, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+        
+        /* حركة اللوجو في الهيدر */
+        .header-logo-icon {
+            animation: gentle-breath 3s ease-in-out infinite;
+            display: flex; gap: 4px; align-items: center; justify-content: center;
+        }
+        
+        @keyframes gentle-breath {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1582924945768-45e0d47d4eb8?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1582924945768-45e0d47d4eb8?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* Scroll Animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(40px);
@@ -96,16 +138,42 @@
             transform: translateY(0);
         }
 
-        /* Card Hover Effects */
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* 5. تصميم كروت الخدمات والإطار الخشبي الفخم */
+        .wooden-card {
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #8B5A2B, #D4AF37, #5C4033) border-box;
+            border-radius: 1.25rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        
+        .wooden-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transform: translateX(-100%); transition: transform 0.6s ease;
         }
 
-        /* Floating Icons */
+        .wooden-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(92, 64, 51, 0.15);
+        }
+        
+        .wooden-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .wooden-card i {
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+        
+        .wooden-card:hover i {
+            transform: scale(1.2) rotate(-5deg);
+            color: #D4AF37;
+        }
+
+        /* 3. تصغير أيقونة الواتساب 30% */
         .floating-whatsapp {
             position: fixed;
             bottom: 80px;
@@ -114,234 +182,278 @@
             background-color: #25d366;
             color: white;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 45px; /* تم التصغير */
+            height: 45px; /* تم التصغير */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 24px; /* تم التصغير */
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             animation: bounce-slight 2s infinite ease-in-out;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: #1ebd5a;
         }
         
         @keyframes bounce-slight {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* Bottom Nav (Mobile) */
+        /* 4. البار السفلي الفخم للموبايل */
         .bottom-nav {
             position: fixed;
             bottom: 0; left: 0; width: 100%;
-            background: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
             z-index: 40;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-top: 3px solid;
+            border-image: linear-gradient(to right, #8B5A2B, #D4AF37, #8B5A2B) 1;
+            padding: 8px 0; /* تصغير الحجم */
         }
+        
+        .nav-icon {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-icon:active, .nav-icon:hover {
+            transform: translateY(-4px) scale(1.1);
+            color: #D4AF37 !important;
+        }
+
     </style>
 </head>
 <body class="antialiased text-gray-800">
 
     <div id="loader">
         <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div class="loader-icon">
-                <i class="fa-solid fa-hammer"></i>
-                <i class="fa-solid fa-saw"></i>
+            <div class="loader-icon-container">
+                <div class="loader-icon-inner">
+                    <i class="fa-solid fa-hammer"></i>
+                    <i class="fa-solid fa-saw" style="font-size: 0.8em; margin-top: 5px;"></i>
+                </div>
             </div>
-            <h2 class="text-2xl font-bold text-[#5C4033] mb-2">مؤسسة محمد آل يحي</h2>
-            <p class="text-gray-500">جاري التحميل...</p>
+            <h2 class="text-3xl font-bold text-[#D4AF37] mb-3 tracking-wide">موقع مؤسسة محمد عمر ال يحي يرحب بكم</h2>
+            <p class="text-gray-300 font-medium text-lg tracking-widest animate-pulse">جاري تحميل الموقع ...</p>
         </div>
-        <a href="https://wa.me/20100000000" target="_blank" class="gold-credit">
-            <i class="fa-brands fa-whatsapp text-xl"></i>
+        <a href="https://wa.me/966547194788" target="_blank" class="gold-credit">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
             تصميم المهندس / إسلام الشيخ 
         </a>
     </div>
 
-    <header class="absolute top-0 w-full z-30 p-4 text-white">
+    <header id="main-header" class="fixed top-0 w-full z-30 p-5 text-white bg-transparent">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="bg-[#5C4033] p-2 rounded-full">
-                    <i class="fa-solid fa-hammer"></i>
+            <div class="flex items-center gap-3">
+                <div class="bg-[#5C4033] border border-[#D4AF37] p-2 rounded-full header-logo-icon shadow-lg">
+                    <i class="fa-solid fa-hammer text-[#D4AF37] text-sm"></i>
+                    <i class="fa-solid fa-saw text-[#D4AF37] text-xs"></i>
                 </div>
-                <h1 class="font-bold text-xl">مؤسسة محمد آل يحي</h1>
+                <h1 class="font-bold text-xl md:text-2xl text-white drop-shadow-md">مؤسسة محمد آل يحي</h1>
             </div>
             <button class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
-            <nav class="hidden md:flex gap-6 items-center">
+            <nav class="hidden md:flex gap-8 items-center font-medium">
                 <a href="#" class="hover:text-[#D4AF37] transition">الرئيسية</a>
                 <a href="#services" class="hover:text-[#D4AF37] transition">خدماتنا</a>
                 <a href="#portfolio" class="hover:text-[#D4AF37] transition">أعمالنا</a>
-                <a href="tel:0547906835" class="bg-[#5C4033] px-6 py-2 rounded-lg hover:bg-opacity-80 transition text-white">اتصل الآن</a>
+                <a href="tel:0547906835" class="bg-gradient-to-r from-[#8B5A2B] to-[#5C4033] border border-[#D4AF37] px-8 py-2.5 rounded-full hover:shadow-lg hover:shadow-[#D4AF37]/30 transition text-white">اتصل الآن</a>
             </nav>
         </div>
     </header>
 
     <section class="hero-bg min-h-screen flex items-center justify-center text-center px-4 relative pt-20">
-        <div class="z-10 fade-in-up text-white max-w-4xl">
-            <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+        <div class="z-10 fade-in-up text-white max-w-4xl mt-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-5 leading-snug drop-shadow-lg">
                 مؤسسة محمد آل يحي<br>
-                <span class="text-red-500">تفصيل خزائن وديكورات</span>
+                <span class="text-[#D4AF37]">تفصيل خزائن وديكورات</span>
             </h2>
-            <p class="text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
+            <p class="text-base md:text-lg mb-10 text-gray-200 leading-relaxed font-light drop-shadow-md px-4">
                 خدمات نجارة واعمال تركيب الديكورات وتفصيل وتصميم خزائن ودواليب ملابس وغرف نوم وغرف أطفال، وتصميم وتفصيل أبواب ونوافذ خشبية وتصميم ديكور شاشة خشبي.. تفصيل حسب الطلب والمقاسات.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="https://wa.me/966547906835" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-xl flex items-center justify-center gap-2 transition text-lg w-full md:w-auto">
-                    تواصل معنا الحين <i class="fa-brands fa-whatsapp"></i>
+            <div class="flex flex-col md:flex-row justify-center gap-5">
+                <a href="https://wa.me/966547906835" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full flex items-center justify-center gap-3 transition text-base w-full md:w-auto shadow-lg shadow-green-500/30">
+                    تواصل معنا الحين <i class="fa-brands fa-whatsapp text-xl"></i>
                 </a>
-                <a href="#services" class="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white font-bold py-3 px-8 rounded-xl flex items-center justify-center gap-2 transition text-lg w-full md:w-auto border border-white border-opacity-30">
+                <a href="#services" class="bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur-md text-white font-bold py-3 px-8 rounded-full flex items-center justify-center gap-3 transition text-base w-full md:w-auto border border-white border-opacity-40">
                     تصفح خدماتنا <i class="fa-solid fa-arrow-left"></i>
                 </a>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 text-center border-t border-white border-opacity-20 pt-8">
-                <div><h3 class="text-3xl font-bold text-red-400">500+</h3><p>مشروع منجز</p></div>
-                <div><h3 class="text-3xl font-bold text-red-400">15+</h3><p>سنة خبرة</p></div>
-                <div><h3 class="text-3xl font-bold text-red-400">24/7</h3><p>دعم فني</p></div>
-                <div><h3 class="text-3xl font-bold text-red-400">100%</h3><p>جودة أعمالنا</p></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 text-center border-t border-white border-opacity-20 pt-10">
+                <div><h3 class="text-3xl font-bold text-[#D4AF37] mb-1">500+</h3><p class="text-sm text-gray-300">مشروع منجز</p></div>
+                <div><h3 class="text-3xl font-bold text-[#D4AF37] mb-1">15+</h3><p class="text-sm text-gray-300">سنة خبرة</p></div>
+                <div><h3 class="text-3xl font-bold text-[#D4AF37] mb-1">24/7</h3><p class="text-sm text-gray-300">دعم فني</p></div>
+                <div><h3 class="text-3xl font-bold text-[#D4AF37] mb-1">100%</h3><p class="text-sm text-gray-300">جودة أعمالنا</p></div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="py-20 px-4 bg-[#FDFBF7]">
+    <section id="portfolio" class="py-24 px-4 bg-[#FDFBF7]">
         <div class="container mx-auto text-center fade-in-up">
-            <h2 class="text-3xl font-bold text-[#5C4033] mb-12">معرض أعمالنا</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="rounded-xl overflow-hidden shadow-md service-card bg-white p-2">
-                    <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-60 object-cover rounded-lg mb-3" alt="خزائن">
-                    <h3 class="font-bold text-gray-800">تفصيل خزائن ودواليب</h3>
+            <h2 class="text-3xl font-bold text-[#5C4033] mb-14">معرض أعمالنا</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-3 hover:-translate-y-2 transition duration-300 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-56 object-cover rounded-xl mb-4" alt="خزائن">
+                    <h3 class="font-bold text-gray-800 text-sm md:text-base">تفصيل خزائن ودواليب</h3>
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-md service-card bg-white p-2">
-                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-60 object-cover rounded-lg mb-3" alt="ديكورات شاشات">
-                    <h3 class="font-bold text-gray-800">ديكور شاشات خشبي</h3>
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-3 hover:-translate-y-2 transition duration-300 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-56 object-cover rounded-xl mb-4" alt="ديكورات شاشات">
+                    <h3 class="font-bold text-gray-800 text-sm md:text-base">ديكور شاشات خشبي</h3>
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-md service-card bg-white p-2">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-60 object-cover rounded-lg mb-3" alt="غرف نوم">
-                    <h3 class="font-bold text-gray-800">غرف نوم وأطفال</h3>
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-3 hover:-translate-y-2 transition duration-300 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-56 object-cover rounded-xl mb-4" alt="غرف نوم">
+                    <h3 class="font-bold text-gray-800 text-sm md:text-base">غرف نوم وأطفال</h3>
                 </div>
-                <div class="rounded-xl overflow-hidden shadow-md service-card bg-white p-2">
-                    <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-60 object-cover rounded-lg mb-3" alt="أبواب خشبية">
-                    <h3 class="font-bold text-gray-800">أبواب ونوافذ خشبية</h3>
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-3 hover:-translate-y-2 transition duration-300 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=800&auto=format&fit=crop" class="w-full h-40 md:h-56 object-cover rounded-xl mb-4" alt="أبواب خشبية">
+                    <h3 class="font-bold text-gray-800 text-sm md:text-base">أبواب ونوافذ خشبية</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-[#FDFBF7] border-t border-gray-200 border-b">
+    <section class="py-16 bg-white border-t border-gray-100 border-b shadow-sm">
         <div class="container mx-auto px-4 fade-in-up text-center">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="flex flex-col items-center">
-                    <div class="bg-red-50 text-red-400 w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4">
+                    <div class="bg-gradient-to-br from-[#FDFBF7] to-[#f4e8d8] text-[#D4AF37] border border-[#e8d5b5] w-20 h-20 rounded-full flex items-center justify-center text-3xl mb-5 shadow-inner">
                         <i class="fa-regular fa-clock"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">دقة في المواعيد</h3>
-                    <p class="text-gray-500">نلتزم بالتسليم في الموعد المحدد بدقة تامة</p>
+                    <h3 class="text-xl font-bold mb-3 text-[#5C4033]">دقة في المواعيد</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">نلتزم بالشفافية التامة والتسليم في الموعد المحدد بدقة، لأن وقت عملائنا هو أولويتنا القصوى.</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <div class="bg-red-50 text-red-400 w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4">
-                        <i class="fa-solid fa-tag"></i>
+                    <div class="bg-gradient-to-br from-[#FDFBF7] to-[#f4e8d8] text-[#D4AF37] border border-[#e8d5b5] w-20 h-20 rounded-full flex items-center justify-center text-3xl mb-5 shadow-inner">
+                        <i class="fa-solid fa-ruler-combined"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">تفصيل حسب المقاس</h3>
-                    <p class="text-gray-500">جودة عالية وتصميمات تتناسب مع مساحتك وأسعارنا منافسة</p>
+                    <h3 class="text-xl font-bold mb-3 text-[#5C4033]">تفصيل حسب المقاس</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">جودة عالية وتصميمات مرنة تتناسب مع مساحتك بدقة متناهية، لنضمن لك استغلالاً مثالياً لكل زاوية.</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <div class="bg-red-50 text-red-400 w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div class="bg-gradient-to-br from-[#FDFBF7] to-[#f4e8d8] text-[#D4AF37] border border-[#e8d5b5] w-20 h-20 rounded-full flex items-center justify-center text-3xl mb-5 shadow-inner">
+                        <i class="fa-solid fa-gem"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">تشطيب فاخر</h3>
-                    <p class="text-gray-500">اهتمام بأدق التفاصيل لضمان مظهر فخم للديكورات</p>
+                    <h3 class="text-xl font-bold mb-3 text-[#5C4033]">تشطيب فاخر</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">اهتمام بأدق التفاصيل واللمسات النهائية لضمان مظهر فخم للديكورات يعكس ذوقك الرفيع ويعيش طويلاً.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-20 px-4 bg-[#F4F1EA]">
+    <section id="services" class="py-24 px-4 bg-[#F8F5F0]">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold text-[#5C4033] mb-4 fade-in-up">خدماتنا المميزة</h2>
-            <p class="text-gray-600 mb-12 max-w-2xl mx-auto fade-in-up">نقدم كافة خدمات النجارة وتركيب الديكورات وتفصيل الخزائن بأعلى جودة واحترافية.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-[#5C4033] mb-6 fade-in-up">خدماتنا المميزة</h2>
+            <p class="text-gray-600 mb-16 max-w-3xl mx-auto fade-in-up leading-relaxed text-base md:text-lg">
+                نفخر في مؤسسة محمد آل يحي بتقديم أحدث وأرقى حلول النجارة وتفصيل الأثاث في المملكة. ندمج بين عراقة الحرفة اليدوية وأحدث التقنيات لنبتكر تصاميم استثنائية تفوق توقعاتك. التزامنا بالجودة، الدقة، والتميز هو ما يجعلنا الخيار الأول لعملائنا في كل ما يخص الديكورات الخشبية.
+            </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 service-card fade-in-up">
-                    <i class="fa-solid fa-box-archive text-4xl text-[#5C4033] mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">تفصيل خزائن ودواليب</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">تفصيل وتصميم خزائن ودواليب ملابس بأحجام وتصاميم مخصصة تناسب مساحتك واحتياجاتك بدقة.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
+                <div class="bg-white p-8 wooden-card fade-in-up">
+                    <div class="w-16 h-16 bg-[#FDFBF7] rounded-full flex items-center justify-center mb-6 shadow-sm border border-gray-100 mx-auto md:mx-0">
+                        <i class="fa-solid fa-boxes-packing text-3xl text-[#5C4033]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-[#5C4033] text-center md:text-right">تفصيل خزائن ودواليب</h3>
+                    <p class="text-gray-600 text-sm leading-loose">نفخر بتقديم أرقى خدمات تفصيل وتصميم خزائن الملابس والدواليب العصرية والكلاسيكية. نستخدم أجود أنواع الأخشاب والإكسسوارات العالمية لضمان استغلال مثالي للمساحات بتصاميم تتناسب مع ذوقك الرفيع واحتياجاتك اليومية بدقة متناهية وفخامة لا تضاهى.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 service-card fade-in-up">
-                    <i class="fa-solid fa-tv text-4xl text-[#5C4033] mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">ديكور شاشة خشبي</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">تصميم وتفصيل أحدث ديكورات الشاشات الخشبية المودرن والكلاسيك لتضفي لمسة جمالية على صالتك.</p>
+                
+                <div class="bg-white p-8 wooden-card fade-in-up">
+                    <div class="w-16 h-16 bg-[#FDFBF7] rounded-full flex items-center justify-center mb-6 shadow-sm border border-gray-100 mx-auto md:mx-0">
+                        <i class="fa-solid fa-tv text-3xl text-[#5C4033]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-[#5C4033] text-center md:text-right">ديكور شاشة خشبي</h3>
+                    <p class="text-gray-600 text-sm leading-loose">ارتقِ بجمال صالتك مع أحدث وأفخم ديكورات الشاشات الخشبية. نصمم وننفذ ديكورات جدارية مدمجة بالإضاءة المخفية والرفوف الأنيقة، لنجعل من جدار التلفاز لوحة فنية تخطف الأنظار وتعكس رقي منزلك وتوفر لك مساحة عملية وجذابة في نفس الوقت.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 service-card fade-in-up">
-                    <i class="fa-solid fa-door-closed text-4xl text-[#5C4033] mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">أبواب ونوافذ خشبية</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">تصميم وتفصيل أبواب ونوافذ خشبية متينة وعصرية باستخدام أجود أنواع الأخشاب المقاومة للعوامل الجوية.</p>
+                
+                <div class="bg-white p-8 wooden-card fade-in-up">
+                    <div class="w-16 h-16 bg-[#FDFBF7] rounded-full flex items-center justify-center mb-6 shadow-sm border border-gray-100 mx-auto md:mx-0">
+                        <i class="fa-solid fa-door-open text-3xl text-[#5C4033]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-[#5C4033] text-center md:text-right">أبواب ونوافذ خشبية</h3>
+                    <p class="text-gray-600 text-sm leading-loose">نقدم حلولاً متكاملة لتصميم وتفصيل الأبواب الداخلية والخارجية والنوافذ الخشبية. نضمن لك المتانة العالية والعزل الممتاز مع تصاميم هندسية فريدة ونقوش إبداعية تقاوم العوامل الجوية وتضيف لمسة من الفخامة والدفء الكلاسيكي أو المودرن على كل زاوية.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 service-card fade-in-up">
-                    <i class="fa-solid fa-bed text-4xl text-[#5C4033] mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">غرف نوم وأطفال</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">تفصيل غرف نوم رئيسية وغرف أطفال بتصاميم تجمع بين الراحة، المتانة، والأمان بألوان جذابة.</p>
+                
+                <div class="bg-white p-8 wooden-card fade-in-up">
+                    <div class="w-16 h-16 bg-[#FDFBF7] rounded-full flex items-center justify-center mb-6 shadow-sm border border-gray-100 mx-auto md:mx-0">
+                        <i class="fa-solid fa-bed text-3xl text-[#5C4033]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-[#5C4033] text-center md:text-right">غرف نوم وأطفال</h3>
+                    <p class="text-gray-600 text-sm leading-loose">نحول أحلامك إلى حقيقة من خلال تفصيل غرف نوم رئيسية مفعمة بالهدوء والرومانسية، وغرف أطفال تجمع بين الأمان المطلق والألوان الحيوية. نهتم بأدق تفاصيل الراحة والمتانة لتنعم بمساحة شخصية مثالية تلبي طموحاتك وتصمد لسنوات طويلة بجودتها.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 service-card fade-in-up">
-                    <i class="fa-solid fa-puzzle-piece text-4xl text-[#5C4033] mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">أعمال تركيب الديكورات</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">خبراء في تركيب كافة أنواع الديكورات الخشبية والجدارية للمنازل والمكاتب بأعلى مستوى من التشطيب.</p>
+                
+                <div class="bg-white p-8 wooden-card fade-in-up">
+                    <div class="w-16 h-16 bg-[#FDFBF7] rounded-full flex items-center justify-center mb-6 shadow-sm border border-gray-100 mx-auto md:mx-0">
+                        <i class="fa-solid fa-puzzle-piece text-3xl text-[#5C4033]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-[#5C4033] text-center md:text-right">أعمال تركيب الديكورات</h3>
+                    <p class="text-gray-600 text-sm leading-loose">يضم فريقنا نخبة من أمهر النجارين والفنيين المتخصصين في تركيب كافة أنواع الديكورات الخشبية والجدارية، وتكسيات الجدران (بديل الخشب والرخام)، لتنفيذ مشاريعك السكنية والتجارية بأعلى مستويات التشطيب الاحترافي الخالي من العيوب والشوائب.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 service-card fade-in-up">
-                    <i class="fa-solid fa-ruler-combined text-4xl text-[#5C4033] mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">تفصيل حسب المقاس</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">نقوم بتنفيذ أي تصميم تطلبه وتفصيله حسب المقاسات الخاصة بك ليتناسب مع ديكور منزلك تماماً.</p>
+                
+                <div class="bg-white p-8 wooden-card fade-in-up">
+                    <div class="w-16 h-16 bg-[#FDFBF7] rounded-full flex items-center justify-center mb-6 shadow-sm border border-gray-100 mx-auto md:mx-0">
+                        <i class="fa-solid fa-pen-ruler text-3xl text-[#5C4033]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-[#5C4033] text-center md:text-right">تفصيل حسب المقاس</h3>
+                    <p class="text-gray-600 text-sm leading-loose">نؤمن بأن كل مساحة لها طابعها الخاص، لذا نقدم خدمة التفصيل المخصص بالكامل. مهما كان تعقيد التصميم الذي ترغب به، نقوم بأخذ المقاسات الدقيقة وتحويل أفكارك إلى قطع أثاث فريدة ومطابقة للتصور تتناغم بسلاسة مطلقة مع هوية وديكور منزلك.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-[#FDFBF7] text-center fade-in-up">
-        <div class="container mx-auto max-w-2xl bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-            <h3 class="text-red-400 font-bold mb-2"><i class="fa-solid fa-wand-magic-sparkles"></i> مساعد التصميم الذكي</h3>
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">صمم ديكوراتك بالذكاء الاصطناعي</h2>
-            <p class="text-gray-500 mb-6 text-sm">صف لنا ما تحلم به وسيقوم مساعدنا الذكي باقتراح التصميم ونوع الخشب المناسب.</p>
-            <textarea class="w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:border-[#5C4033] mb-4 text-sm" rows="3" placeholder="مثلاً: أريد ديكور شاشة خشبي مودرن مع إضاءة مخفية..."></textarea>
-            <button class="w-full bg-[#E5B5A1] hover:bg-[#d69f88] text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2">
-                <i class="fa-solid fa-pen-nib"></i> ابدأ التصميم الآن
-            </button>
-        </div>
-    </section>
-
-    <footer class="bg-[#5C4033] text-white py-16 px-4 pb-28 md:pb-16 text-center relative">
+    <footer class="bg-[#2A1A14] text-white py-20 px-4 pb-28 md:pb-16 text-center relative border-t-[6px] border-[#D4AF37]">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-4">مؤسسة محمد آل يحي</h2>
-            <p class="text-gray-300 max-w-md mx-auto mb-10 text-sm leading-relaxed">خدمات نجارة متكاملة واعمال تركيب الديكورات وتفصيل الخزائن والأبواب بأعلى معايير الجودة.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#D4AF37]">مؤسسة محمد آل يحي للنجارة</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-14 text-sm md:text-base leading-relaxed font-light">
+                نضع بين أيديكم خبرة سنوات طويلة في عالم النجارة وتفصيل الأثاث. نسعى دائماً لتحويل أفكاركم إلى إبداعات ملموسة تنبض بالحياة، مع الالتزام التام بأعلى معايير الجودة العالمية والأسعار التنافسية التي تناسب الجميع، لنجعل من منزلك تحفة فنية.
+            </p>
             
-            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                <div class="bg-white bg-opacity-10 p-6 rounded-2xl border border-white border-opacity-20 flex-1 max-w-xs mx-auto w-full">
-                    <div class="bg-red-400 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 justify-center gap-6 mb-16 max-w-5xl mx-auto">
+                <div class="bg-white bg-opacity-5 p-8 rounded-2xl border border-white border-opacity-10 hover:border-[#D4AF37] transition duration-300 w-full">
+                    <div class="bg-gradient-to-br from-[#D4AF37] to-[#8B5A2B] w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg">
                         <i class="fa-solid fa-phone"></i>
                     </div>
-                    <h3 class="text-xl font-bold">0547906835</h3>
-                    <p class="text-sm text-gray-300">هاتفياً أو واتساب</p>
+                    <h3 class="text-2xl font-bold mb-2 tracking-wider">0547906835</h3>
+                    <p class="text-sm text-gray-400">هاتفياً أو واتساب</p>
                 </div>
-                <div class="bg-white bg-opacity-10 p-6 rounded-2xl border border-white border-opacity-20 flex-1 max-w-xs mx-auto w-full">
-                    <div class="bg-red-400 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <div class="bg-white bg-opacity-5 p-8 rounded-2xl border border-white border-opacity-10 hover:border-[#D4AF37] transition duration-300 w-full">
+                    <div class="bg-gradient-to-br from-[#D4AF37] to-[#8B5A2B] w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 font-sans tracking-wide">info@mohamedomeralyeiya.com</h3>
+                    <p class="text-sm text-gray-400">راسلنا على البريد الإلكتروني</p>
+                </div>
+                <div class="bg-white bg-opacity-5 p-8 rounded-2xl border border-white border-opacity-10 hover:border-[#D4AF37] transition duration-300 w-full">
+                    <div class="bg-gradient-to-br from-[#D4AF37] to-[#8B5A2B] w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl shadow-lg">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <h3 class="text-lg font-bold">3981 الحكم المستنصر بالله</h3>
-                    <p class="text-sm text-gray-300">6854 الخليج، الرياض 13223</p>
+                    <h3 class="text-lg font-bold mb-2">3981 الحكم المستنصر بالله</h3>
+                    <p class="text-sm text-gray-400">6854 الخليج، الرياض 13223</p>
                 </div>
             </div>
-
-            <div class="flex justify-center gap-4 mb-10">
-                <a href="#" class="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center hover:bg-white hover:text-[#5C4033] transition"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center hover:bg-white hover:text-[#5C4033] transition"><i class="fa-brands fa-instagram"></i></a>
+            
+            <div class="w-full max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#D4AF37]/30 bg-white p-1">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d682.7081345936846!2d46.7962127739907!3d24.764606894500297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0048a5fdb935%3A0x2104ad951561feb2!2zUkZLQTY4NTTYjCA2ODU0INin2YTYrdmD2YUg2KfZhNmF2LPYqtmG2LXYsSDYqNin2YTZhNmH2IwgMzk4MdiMINit2Yog2KfZhNiu2YTZitis2Iwg2KfZhNix2YrYp9i2IDEzMjIz!5e1!3m2!1sar!2ssa!4v1772254564100!5m2!1sar!2ssa" width="100%" height="350" style="border:0; border-radius: 0.75rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <div class="mb-4">
-                <a href="https://wa.me/20100000000" target="_blank" class="gold-credit">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
+            <div class="flex justify-center gap-5 mb-12">
+                <a href="#" class="w-12 h-12 rounded-full border border-gray-500 flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-white transition duration-300 text-lg"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="w-12 h-12 rounded-full border border-gray-500 flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-white transition duration-300 text-lg"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <div class="mb-6">
+                <a href="https://wa.me/966547194788" target="_blank" class="gold-credit">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
                     تصميم المهندس / إسلام الشيخ 
                 </a>
             </div>
 
-            <p class="text-xs text-gray-400">© كل الحقوق محفوظة لدى مؤسسة محمد آل يحي 2026 - 2027</p>
+            <p class="text-sm text-gray-400 font-light">جميع الحقوق محفوظة لدى / مؤسسة محمد آل يحي للنجارة 2027.</p>
         </div>
     </footer>
 
@@ -349,11 +461,12 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <div class="bottom-nav flex md:hidden justify-around items-center py-3 text-gray-400 text-2xl">
-        <a href="tel:0547906835" class="hover:text-[#5C4033] transition"><i class="fa-solid fa-phone"></i></a>
-        <a href="#" class="hover:text-[#5C4033] transition"><i class="fa-regular fa-user"></i></a>
-        <a href="#services" class="hover:text-[#5C4033] transition"><i class="fa-solid fa-table-cells-large"></i></a>
-        <a href="#" class="text-[#5C4033] transition bg-red-50 p-2 rounded-xl"><i class="fa-solid fa-house"></i></a>
+    <div class="bottom-nav flex md:hidden justify-around items-center text-gray-500 text-xl">
+        <a href="tel:0547906835" class="nav-icon p-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="#services" class="nav-icon p-2"><i class="fa-solid fa-table-cells-large"></i></a>
+        <a href="#" class="text-[#D4AF37] transition bg-[#FDFBF7] border border-[#e8d5b5] shadow-inner p-2.5 rounded-xl transform -translate-y-2"><i class="fa-solid fa-house"></i></a>
+        <a href="#portfolio" class="nav-icon p-2"><i class="fa-regular fa-image"></i></a>
+        <a href="mailto:info@mohamedomeralyeiya.com" class="nav-icon p-2"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
     <script>
@@ -364,8 +477,20 @@
                 loader.style.opacity = '0';
                 setTimeout(() => {
                     loader.style.display = 'none';
-                }, 500);
-            }, 2500);
+                }, 800);
+            }, 2800); // زيادة وقت التحميل قليلاً لتظهر الفخامة
+        });
+
+        // الهيدر الذكي المتغير
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if(window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+                header.classList.remove('bg-transparent', 'py-5');
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.add('bg-transparent', 'py-5');
+            }
         });
 
         // أنميشن الظهور عند التمرير
